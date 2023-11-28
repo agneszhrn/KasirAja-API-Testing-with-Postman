@@ -1,22 +1,22 @@
 {
-	"id": "777dd615-0568-42e4-9b3d-fba0c0b5b0f7",
-	"name": "KasirAja - Agnes",
-	"timestamp": "2023-09-01T12:23:11.092Z",
-	"collection_id": "27607205-62d0acd1-1a76-49d0-beea-b9a16217bb93",
+	"id": "2e77449d-0cde-4d71-9293-aae4ce03f4aa",
+	"name": "KasirAja API Testing",
+	"timestamp": "2023-11-28T06:57:41.657Z",
+	"collection_id": "27607205-1783162a-b006-4b14-8cd8-925c4f60b9f5",
 	"folder_id": 0,
 	"environment_id": "27607205-6debedab-2b38-4ce2-8bac-8c0bf2dd9071",
 	"totalPass": 71,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2023-09-01T12:23:05.761Z",
+	"startedAt": "2023-11-28T06:57:34.346Z",
 	"totalFail": 0,
 	"results": [
 		{
-			"id": "9e2dfbd9-042e-4b90-8665-984d8fd1b9b7",
-			"name": "Register",
+			"id": "9c2f6812-5745-4dc7-8f52-8f2c7f3d7084",
+			"name": "Registation",
 			"url": "https://kasir-api.belajarqa.com/registration",
-			"time": 562,
+			"time": 1327,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -36,7 +36,7 @@
 				}
 			},
 			"times": [
-				562
+				1327
 			],
 			"allTests": [
 				{
@@ -46,10 +46,10 @@
 			]
 		},
 		{
-			"id": "d3a96c82-dd74-4a52-b503-2cae12f18487",
+			"id": "9ae5b26c-29a4-441f-aef0-f48b5acb8629",
 			"name": "Login",
 			"url": "https://kasir-api.belajarqa.com/authentications",
-			"time": 407,
+			"time": 373,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -69,7 +69,7 @@
 				}
 			},
 			"times": [
-				407
+				373
 			],
 			"allTests": [
 				{
@@ -79,10 +79,10 @@
 			]
 		},
 		{
-			"id": "bc4a60de-1fbd-4edf-b031-fa3911729b01",
+			"id": "fe415806-9b44-4c78-8368-2bc3952b44ad",
 			"name": "Refresh Token",
 			"url": "https://kasir-api.belajarqa.com/authentications",
-			"time": 94,
+			"time": 99,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -102,7 +102,7 @@
 				}
 			},
 			"times": [
-				94
+				99
 			],
 			"allTests": [
 				{
@@ -112,10 +112,10 @@
 			]
 		},
 		{
-			"id": "21b8e7a2-eed2-47ad-8900-b3641ac2dba5",
+			"id": "dfb4e31d-2543-47ac-8190-baa8b29aab19",
 			"name": "Logout",
 			"url": "https://kasir-api.belajarqa.com/authentications",
-			"time": 105,
+			"time": 157,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -135,7 +135,7 @@
 				}
 			},
 			"times": [
-				105
+				157
 			],
 			"allTests": [
 				{
@@ -145,10 +145,10 @@
 			]
 		},
 		{
-			"id": "65e1674f-6afb-4612-8004-58f5e6d628ef",
+			"id": "c35f78a0-128d-43ad-85e6-eceff6511661",
 			"name": "Create User",
 			"url": "https://kasir-api.belajarqa.com/users",
-			"time": 442,
+			"time": 346,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -168,7 +168,7 @@
 				}
 			},
 			"times": [
-				442
+				346
 			],
 			"allTests": [
 				{
@@ -178,10 +178,10 @@
 			]
 		},
 		{
-			"id": "c1b256e3-212f-48d3-b6ff-93bb5c3091d9",
+			"id": "6a58da14-212c-4597-8388-bb9a66d65482",
 			"name": "Get User Detail",
-			"url": "https://kasir-api.belajarqa.com/users/b4669e75-f76b-4372-8d52-3b34da159fdc",
-			"time": 40,
+			"url": "https://kasir-api.belajarqa.com/users/e6eda631-c415-4512-87fb-ce0c3704cf85",
+			"time": 28,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -201,7 +201,7 @@
 				}
 			},
 			"times": [
-				40
+				28
 			],
 			"allTests": [
 				{
@@ -211,10 +211,10 @@
 			]
 		},
 		{
-			"id": "3f4ce135-272c-4b71-ad46-b45b8eb0c579",
+			"id": "3352c2ad-1840-43d4-97c6-4fab83ade0ae",
 			"name": "Get User List",
 			"url": "https://kasir-api.belajarqa.com/users",
-			"time": 37,
+			"time": 52,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -234,7 +234,7 @@
 				}
 			},
 			"times": [
-				37
+				52
 			],
 			"allTests": [
 				{
@@ -244,9 +244,9 @@
 			]
 		},
 		{
-			"id": "a651dff7-0433-44e8-8cbc-78eee8f9f737",
+			"id": "2c722a41-6e24-4876-a242-de78cbb8374c",
 			"name": "Update User",
-			"url": "https://kasir-api.belajarqa.com/users/b4669e75-f76b-4372-8d52-3b34da159fdc",
+			"url": "https://kasir-api.belajarqa.com/users/e6eda631-c415-4512-87fb-ce0c3704cf85",
 			"time": 30,
 			"responseCode": {
 				"code": 200,
@@ -277,9 +277,9 @@
 			]
 		},
 		{
-			"id": "45271a91-49f5-4ee4-bd5d-9d5eeea6871d",
+			"id": "b3424431-4a0f-4126-9f71-79aee24ca29b",
 			"name": "Delete User",
-			"url": "https://kasir-api.belajarqa.com/users/b4669e75-f76b-4372-8d52-3b34da159fdc",
+			"url": "https://kasir-api.belajarqa.com/users/e6eda631-c415-4512-87fb-ce0c3704cf85",
 			"time": 30,
 			"responseCode": {
 				"code": 200,
@@ -310,10 +310,10 @@
 			]
 		},
 		{
-			"id": "2cb31892-b130-4caa-a50f-4f89f0f9df57",
+			"id": "54d30442-8a1a-4675-94fc-d4f70e9b86e9",
 			"name": "Add Unit",
 			"url": "https://kasir-api.belajarqa.com/units",
-			"time": 39,
+			"time": 28,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -333,7 +333,7 @@
 				}
 			},
 			"times": [
-				39
+				28
 			],
 			"allTests": [
 				{
@@ -343,10 +343,10 @@
 			]
 		},
 		{
-			"id": "609d126a-27b8-41dc-a4a8-96aceced5571",
+			"id": "c158a848-3b4d-4dc6-85ee-14ea1e6adf22",
 			"name": "Get Unit Detail",
-			"url": "https://kasir-api.belajarqa.com/units/2361ba5f-34f1-4151-9f35-8ff80ddddb43",
-			"time": 27,
+			"url": "https://kasir-api.belajarqa.com/units/3bb97b9c-56e3-4d8b-8d28-f541d1797fe5",
+			"time": 28,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -366,7 +366,7 @@
 				}
 			},
 			"times": [
-				27
+				28
 			],
 			"allTests": [
 				{
@@ -376,10 +376,10 @@
 			]
 		},
 		{
-			"id": "7514c294-1aba-4959-8b36-9d5f9cdae70b",
+			"id": "fb406777-6c9a-4c84-8bcb-8cf3c5b7ef67",
 			"name": "Get Unit List",
 			"url": "https://kasir-api.belajarqa.com/units",
-			"time": 42,
+			"time": 45,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -399,7 +399,7 @@
 				}
 			},
 			"times": [
-				42
+				45
 			],
 			"allTests": [
 				{
@@ -409,10 +409,10 @@
 			]
 		},
 		{
-			"id": "ab5c29d8-c81b-4308-95f8-f085b5262e7e",
+			"id": "d9615247-17f0-41aa-a32e-5acaa8f6b226",
 			"name": "Update Unit",
-			"url": "https://kasir-api.belajarqa.com/units/2361ba5f-34f1-4151-9f35-8ff80ddddb43",
-			"time": 27,
+			"url": "https://kasir-api.belajarqa.com/units/3bb97b9c-56e3-4d8b-8d28-f541d1797fe5",
+			"time": 41,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -432,7 +432,7 @@
 				}
 			},
 			"times": [
-				27
+				41
 			],
 			"allTests": [
 				{
@@ -442,10 +442,10 @@
 			]
 		},
 		{
-			"id": "96a86081-009f-41ac-98d8-8270e9d1a6cd",
+			"id": "281a5283-c433-43ec-ade2-c5ca98d933dd",
 			"name": "Delete Unit",
-			"url": "https://kasir-api.belajarqa.com/units/2361ba5f-34f1-4151-9f35-8ff80ddddb43",
-			"time": 27,
+			"url": "https://kasir-api.belajarqa.com/units/3bb97b9c-56e3-4d8b-8d28-f541d1797fe5",
+			"time": 30,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -465,7 +465,7 @@
 				}
 			},
 			"times": [
-				27
+				30
 			],
 			"allTests": [
 				{
@@ -475,10 +475,10 @@
 			]
 		},
 		{
-			"id": "e08d8dcc-46b6-4e5b-a72e-37e92933d9d8",
+			"id": "bfc7613c-cb8f-46b5-ac70-44ecb8a7562f",
 			"name": "Add Category",
 			"url": "https://kasir-api.belajarqa.com/categories",
-			"time": 32,
+			"time": 28,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -498,7 +498,7 @@
 				}
 			},
 			"times": [
-				32
+				28
 			],
 			"allTests": [
 				{
@@ -508,10 +508,10 @@
 			]
 		},
 		{
-			"id": "8ec155cb-3e4a-4332-98ba-6ae44ddb7728",
+			"id": "0cdd6703-97e8-4d40-9d33-9406ade91caa",
 			"name": "Get Category Detail",
-			"url": "https://kasir-api.belajarqa.com/categories/6085c59f-3066-4f5b-aefd-bec2846c507c",
-			"time": 28,
+			"url": "https://kasir-api.belajarqa.com/categories/8ba443d6-24bd-46dd-869a-3b7b44da34f0",
+			"time": 26,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -531,7 +531,7 @@
 				}
 			},
 			"times": [
-				28
+				26
 			],
 			"allTests": [
 				{
@@ -541,10 +541,10 @@
 			]
 		},
 		{
-			"id": "07255f4b-d31d-485b-8517-cb67b4f5596c",
+			"id": "56509260-0bbf-4108-85be-00aeb51e556e",
 			"name": "Get Category List",
 			"url": "https://kasir-api.belajarqa.com/categories",
-			"time": 36,
+			"time": 57,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -564,7 +564,7 @@
 				}
 			},
 			"times": [
-				36
+				57
 			],
 			"allTests": [
 				{
@@ -574,141 +574,9 @@
 			]
 		},
 		{
-			"id": "14d90be7-b6d3-4be5-80f0-9ee71dbc9920",
+			"id": "b93bb97b-8859-4b28-b1c9-aeea941101e6",
 			"name": "Update Category",
-			"url": "https://kasir-api.belajarqa.com/categories/6085c59f-3066-4f5b-aefd-bec2846c507c",
-			"time": 28,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				28
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "0a5a5df0-5211-437c-adac-0ac9a00a1265",
-			"name": "Delete Category",
-			"url": "https://kasir-api.belajarqa.com/categories/6085c59f-3066-4f5b-aefd-bec2846c507c",
-			"time": 27,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Body matches string": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				27
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Body matches string": true
-				}
-			]
-		},
-		{
-			"id": "40584939-7656-474b-9f80-eeb46e3743f9",
-			"name": "Add Customer",
-			"url": "https://kasir-api.belajarqa.com/customers",
-			"time": 27,
-			"responseCode": {
-				"code": 201,
-				"name": "Created"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 201": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 201": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				27
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 201": true
-				}
-			]
-		},
-		{
-			"id": "5ef39219-33ea-49dc-9411-4af7bf0156cb",
-			"name": "Get Customer Detail",
-			"url": "https://kasir-api.belajarqa.com/customers/2e472b32-9baf-44bd-8228-919457c17e0f",
-			"time": 27,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				27
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "14e638ee-e12c-420f-8164-41b89daae88d",
-			"name": "Get Customer List",
-			"url": "https://kasir-api.belajarqa.com/customers",
+			"url": "https://kasir-api.belajarqa.com/categories/8ba443d6-24bd-46dd-869a-3b7b44da34f0",
 			"time": 39,
 			"responseCode": {
 				"code": 200,
@@ -739,10 +607,142 @@
 			]
 		},
 		{
-			"id": "3c18e192-2de9-4f98-a9ba-7e8b68d7a679",
+			"id": "06cb9988-5282-4147-8c60-75d354167ed3",
+			"name": "Delete Category",
+			"url": "https://kasir-api.belajarqa.com/categories/8ba443d6-24bd-46dd-869a-3b7b44da34f0",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "02dfba74-ab89-451f-9449-36879578cc26",
+			"name": "Add Customer",
+			"url": "https://kasir-api.belajarqa.com/customers",
+			"time": 30,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "81facadf-6fb5-47cc-8991-bb8fa40ce94f",
+			"name": "Get Customer Detail",
+			"url": "https://kasir-api.belajarqa.com/customers/5d15a968-7b1e-4ce8-a124-9696db120ee5",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "7dc2d9b2-ca0a-4448-be36-f6873ce38bfd",
+			"name": "Get Customer List",
+			"url": "https://kasir-api.belajarqa.com/customers",
+			"time": 46,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d40a93e9-9f58-4208-9cb4-df3021daebd0",
 			"name": "Update Customer",
-			"url": "https://kasir-api.belajarqa.com/customers/2e472b32-9baf-44bd-8228-919457c17e0f",
-			"time": 27,
+			"url": "https://kasir-api.belajarqa.com/customers/5d15a968-7b1e-4ce8-a124-9696db120ee5",
+			"time": 34,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -762,7 +762,7 @@
 				}
 			},
 			"times": [
-				27
+				34
 			],
 			"allTests": [
 				{
@@ -772,9 +772,9 @@
 			]
 		},
 		{
-			"id": "1659746a-2f99-4612-b4ce-e792cf2c1195",
+			"id": "11c8c1f2-f07b-4f75-bc75-741eccba2199",
 			"name": "Delete Customer",
-			"url": "https://kasir-api.belajarqa.com/customers/2e472b32-9baf-44bd-8228-919457c17e0f",
+			"url": "https://kasir-api.belajarqa.com/customers/5d15a968-7b1e-4ce8-a124-9696db120ee5",
 			"time": 27,
 			"responseCode": {
 				"code": 200,
@@ -805,10 +805,10 @@
 			]
 		},
 		{
-			"id": "62a1b399-d613-47e5-ad96-7c669a265947",
+			"id": "528a24c3-1292-453e-9931-649c264ff5b4",
 			"name": "Add Product",
 			"url": "https://kasir-api.belajarqa.com/products",
-			"time": 36,
+			"time": 41,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -828,7 +828,7 @@
 				}
 			},
 			"times": [
-				36
+				41
 			],
 			"allTests": [
 				{
@@ -838,10 +838,10 @@
 			]
 		},
 		{
-			"id": "45a4512e-55d0-4dc4-92ef-2d884c59b384",
+			"id": "25b41a61-8617-4072-8c41-805c79e9e7b8",
 			"name": "Get Product Detail",
-			"url": "https://kasir-api.belajarqa.com/products/ecd9df62-bfc9-4d54-8b47-ac365b7ebb39",
-			"time": 30,
+			"url": "https://kasir-api.belajarqa.com/products/4f17dae9-cd1b-48b6-aa45-4de505279795",
+			"time": 31,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -861,7 +861,7 @@
 				}
 			},
 			"times": [
-				30
+				31
 			],
 			"allTests": [
 				{
@@ -871,10 +871,10 @@
 			]
 		},
 		{
-			"id": "ba09cfbf-f2cb-421d-b4c4-b91764aa8a3a",
+			"id": "f7439f7a-0b20-432f-b252-6d279c106960",
 			"name": "Get Product List",
 			"url": "https://kasir-api.belajarqa.com/products",
-			"time": 35,
+			"time": 43,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -894,7 +894,7 @@
 				}
 			},
 			"times": [
-				35
+				43
 			],
 			"allTests": [
 				{
@@ -904,10 +904,10 @@
 			]
 		},
 		{
-			"id": "24cba72c-2913-4624-9683-11f1cc829a37",
+			"id": "59e0d6d7-835b-41a5-b83e-d137cb6529a9",
 			"name": "Update Product",
-			"url": "https://kasir-api.belajarqa.com/products/ecd9df62-bfc9-4d54-8b47-ac365b7ebb39",
-			"time": 30,
+			"url": "https://kasir-api.belajarqa.com/products/4f17dae9-cd1b-48b6-aa45-4de505279795",
+			"time": 27,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -927,7 +927,7 @@
 				}
 			},
 			"times": [
-				30
+				27
 			],
 			"allTests": [
 				{
@@ -937,10 +937,10 @@
 			]
 		},
 		{
-			"id": "bc54a4dd-f0b7-4a73-b878-92d0e73b427d",
+			"id": "9a5559db-267c-48d1-805a-bca72987ba9c",
 			"name": "Delete Product",
-			"url": "https://kasir-api.belajarqa.com/products/ecd9df62-bfc9-4d54-8b47-ac365b7ebb39",
-			"time": 31,
+			"url": "https://kasir-api.belajarqa.com/products/4f17dae9-cd1b-48b6-aa45-4de505279795",
+			"time": 28,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -960,7 +960,7 @@
 				}
 			},
 			"times": [
-				31
+				28
 			],
 			"allTests": [
 				{
@@ -970,10 +970,10 @@
 			]
 		},
 		{
-			"id": "1e5f43f1-64cb-48bc-bd09-36a4cbf2f8e5",
+			"id": "cf471766-29bf-4cce-8712-6d738889a1a4",
 			"name": "Add Sales",
 			"url": "https://kasir-api.belajarqa.com/sales",
-			"time": 35,
+			"time": 34,
 			"responseCode": {
 				"code": 201,
 				"name": "Created"
@@ -988,6 +988,138 @@
 					"fail": 0
 				},
 				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "1eadae9b-53b6-4b9f-8843-f4eccc77a4f6",
+			"name": "Get List Sales Data",
+			"url": "https://kasir-api.belajarqa.com/sales?startDate=2023-08-07&endDate=2023-08-12",
+			"time": 131,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				131
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e08b5bf7-c3b8-4057-9a3c-6a0f84e7002f",
+			"name": "Get Sale Order Data",
+			"url": "https://kasir-api.belajarqa.com/sales/85e25529-de8b-48ef-a413-4fdd9f5ecf42",
+			"time": 108,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "2a8bd13c-7212-483a-8d8f-0b387a7674cd",
+			"name": "Add Transaction",
+			"url": "https://kasir-api.belajarqa.com/purchases",
+			"time": 102,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				102
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "c2f47a21-2340-4a26-91b6-7344896fffc4",
+			"name": "Get List of Transactions",
+			"url": "https://kasir-api.belajarqa.com/purchases",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
 					"pass": 1,
 					"fail": 0
 				}
@@ -998,146 +1130,14 @@
 			"allTests": [
 				{
 					"Body matches string": true,
-					"Status code is 201": true
-				}
-			]
-		},
-		{
-			"id": "1f8b5ae7-32f5-49ab-bb22-d05a4a63de08",
-			"name": "Get List Sales Data",
-			"url": "https://kasir-api.belajarqa.com/sales?startDate=2023-08-07&endDate=2023-08-12",
-			"time": 36,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				36
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
 					"Status code is 200": true
 				}
 			]
 		},
 		{
-			"id": "c779faf0-c26c-4ebc-8b61-a022c697b853",
-			"name": "Get Sale Order Data",
-			"url": "https://kasir-api.belajarqa.com/sales/e59e180f-a440-45d4-b2e1-68a8efe9ab96",
-			"time": 31,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				31
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "ae3ef84c-cd23-4b10-9e3f-6b9ae6f771f1",
-			"name": "Add Transaction",
-			"url": "https://kasir-api.belajarqa.com/purchases",
-			"time": 29,
-			"responseCode": {
-				"code": 201,
-				"name": "Created"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 201": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 201": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				29
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 201": true
-				}
-			]
-		},
-		{
-			"id": "2d588213-7719-47d4-85f4-c2b71e5894d2",
-			"name": "Get List of Transactions",
-			"url": "https://kasir-api.belajarqa.com/purchases",
-			"time": 33,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Body matches string": true,
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "4e0d2784-f10d-4035-90f1-0eefd00b6538",
+			"id": "8af96d3d-9999-4cf0-8b9f-eb0affe5bb78",
 			"name": "Get Transaction Detail",
-			"url": "https://kasir-api.belajarqa.com/purchases/5210d374-4dd1-420f-8231-440a775afe57",
+			"url": "https://kasir-api.belajarqa.com/purchases/57ca09c1-9a4c-455e-9958-0c627418281a",
 			"time": 30,
 			"responseCode": {
 				"code": 200,
@@ -1169,147 +1169,147 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 2563,
+	"totalTime": 3564,
 	"collection": {
 		"requests": [
 			{
-				"id": "9e2dfbd9-042e-4b90-8665-984d8fd1b9b7",
+				"id": "9c2f6812-5745-4dc7-8f52-8f2c7f3d7084",
 				"method": "POST"
 			},
 			{
-				"id": "d3a96c82-dd74-4a52-b503-2cae12f18487",
+				"id": "9ae5b26c-29a4-441f-aef0-f48b5acb8629",
 				"method": "POST"
 			},
 			{
-				"id": "bc4a60de-1fbd-4edf-b031-fa3911729b01",
+				"id": "fe415806-9b44-4c78-8368-2bc3952b44ad",
 				"method": "PUT"
 			},
 			{
-				"id": "21b8e7a2-eed2-47ad-8900-b3641ac2dba5",
+				"id": "dfb4e31d-2543-47ac-8190-baa8b29aab19",
 				"method": "DELETE"
 			},
 			{
-				"id": "65e1674f-6afb-4612-8004-58f5e6d628ef",
+				"id": "c35f78a0-128d-43ad-85e6-eceff6511661",
 				"method": "POST"
 			},
 			{
-				"id": "c1b256e3-212f-48d3-b6ff-93bb5c3091d9",
+				"id": "6a58da14-212c-4597-8388-bb9a66d65482",
 				"method": "GET"
 			},
 			{
-				"id": "3f4ce135-272c-4b71-ad46-b45b8eb0c579",
+				"id": "3352c2ad-1840-43d4-97c6-4fab83ade0ae",
 				"method": "GET"
 			},
 			{
-				"id": "a651dff7-0433-44e8-8cbc-78eee8f9f737",
+				"id": "2c722a41-6e24-4876-a242-de78cbb8374c",
 				"method": "PUT"
 			},
 			{
-				"id": "45271a91-49f5-4ee4-bd5d-9d5eeea6871d",
+				"id": "b3424431-4a0f-4126-9f71-79aee24ca29b",
 				"method": "DELETE"
 			},
 			{
-				"id": "2cb31892-b130-4caa-a50f-4f89f0f9df57",
+				"id": "54d30442-8a1a-4675-94fc-d4f70e9b86e9",
 				"method": "POST"
 			},
 			{
-				"id": "609d126a-27b8-41dc-a4a8-96aceced5571",
+				"id": "c158a848-3b4d-4dc6-85ee-14ea1e6adf22",
 				"method": "GET"
 			},
 			{
-				"id": "7514c294-1aba-4959-8b36-9d5f9cdae70b",
+				"id": "fb406777-6c9a-4c84-8bcb-8cf3c5b7ef67",
 				"method": "GET"
 			},
 			{
-				"id": "ab5c29d8-c81b-4308-95f8-f085b5262e7e",
+				"id": "d9615247-17f0-41aa-a32e-5acaa8f6b226",
 				"method": "PUT"
 			},
 			{
-				"id": "96a86081-009f-41ac-98d8-8270e9d1a6cd",
+				"id": "281a5283-c433-43ec-ade2-c5ca98d933dd",
 				"method": "DELETE"
 			},
 			{
-				"id": "e08d8dcc-46b6-4e5b-a72e-37e92933d9d8",
+				"id": "bfc7613c-cb8f-46b5-ac70-44ecb8a7562f",
 				"method": "POST"
 			},
 			{
-				"id": "8ec155cb-3e4a-4332-98ba-6ae44ddb7728",
+				"id": "0cdd6703-97e8-4d40-9d33-9406ade91caa",
 				"method": "GET"
 			},
 			{
-				"id": "07255f4b-d31d-485b-8517-cb67b4f5596c",
+				"id": "56509260-0bbf-4108-85be-00aeb51e556e",
 				"method": "GET"
 			},
 			{
-				"id": "14d90be7-b6d3-4be5-80f0-9ee71dbc9920",
+				"id": "b93bb97b-8859-4b28-b1c9-aeea941101e6",
 				"method": "PUT"
 			},
 			{
-				"id": "0a5a5df0-5211-437c-adac-0ac9a00a1265",
+				"id": "06cb9988-5282-4147-8c60-75d354167ed3",
 				"method": "DELETE"
 			},
 			{
-				"id": "40584939-7656-474b-9f80-eeb46e3743f9",
+				"id": "02dfba74-ab89-451f-9449-36879578cc26",
 				"method": "POST"
 			},
 			{
-				"id": "5ef39219-33ea-49dc-9411-4af7bf0156cb",
+				"id": "81facadf-6fb5-47cc-8991-bb8fa40ce94f",
 				"method": "GET"
 			},
 			{
-				"id": "14e638ee-e12c-420f-8164-41b89daae88d",
+				"id": "7dc2d9b2-ca0a-4448-be36-f6873ce38bfd",
 				"method": "GET"
 			},
 			{
-				"id": "3c18e192-2de9-4f98-a9ba-7e8b68d7a679",
+				"id": "d40a93e9-9f58-4208-9cb4-df3021daebd0",
 				"method": "PUT"
 			},
 			{
-				"id": "1659746a-2f99-4612-b4ce-e792cf2c1195",
+				"id": "11c8c1f2-f07b-4f75-bc75-741eccba2199",
 				"method": "DELETE"
 			},
 			{
-				"id": "62a1b399-d613-47e5-ad96-7c669a265947",
+				"id": "528a24c3-1292-453e-9931-649c264ff5b4",
 				"method": "POST"
 			},
 			{
-				"id": "45a4512e-55d0-4dc4-92ef-2d884c59b384",
+				"id": "25b41a61-8617-4072-8c41-805c79e9e7b8",
 				"method": "GET"
 			},
 			{
-				"id": "ba09cfbf-f2cb-421d-b4c4-b91764aa8a3a",
+				"id": "f7439f7a-0b20-432f-b252-6d279c106960",
 				"method": "GET"
 			},
 			{
-				"id": "24cba72c-2913-4624-9683-11f1cc829a37",
+				"id": "59e0d6d7-835b-41a5-b83e-d137cb6529a9",
 				"method": "PUT"
 			},
 			{
-				"id": "bc54a4dd-f0b7-4a73-b878-92d0e73b427d",
+				"id": "9a5559db-267c-48d1-805a-bca72987ba9c",
 				"method": "DELETE"
 			},
 			{
-				"id": "1e5f43f1-64cb-48bc-bd09-36a4cbf2f8e5",
+				"id": "cf471766-29bf-4cce-8712-6d738889a1a4",
 				"method": "POST"
 			},
 			{
-				"id": "1f8b5ae7-32f5-49ab-bb22-d05a4a63de08",
+				"id": "1eadae9b-53b6-4b9f-8843-f4eccc77a4f6",
 				"method": "GET"
 			},
 			{
-				"id": "c779faf0-c26c-4ebc-8b61-a022c697b853",
+				"id": "e08b5bf7-c3b8-4057-9a3c-6a0f84e7002f",
 				"method": "GET"
 			},
 			{
-				"id": "ae3ef84c-cd23-4b10-9e3f-6b9ae6f771f1",
+				"id": "2a8bd13c-7212-483a-8d8f-0b387a7674cd",
 				"method": "POST"
 			},
 			{
-				"id": "2d588213-7719-47d4-85f4-c2b71e5894d2",
+				"id": "c2f47a21-2340-4a26-91b6-7344896fffc4",
 				"method": "GET"
 			},
 			{
-				"id": "4e0d2784-f10d-4035-90f1-0eefd00b6538",
+				"id": "8af96d3d-9999-4cf0-8b9f-eb0affe5bb78",
 				"method": "GET"
 			}
 		]
