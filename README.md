@@ -8,7 +8,7 @@ To start testing, follow these steps:
 3. Import the `Kasir Aja API Testing.postman_collection` file to Postman.
 4. Run the collection.
 
-#### Or you can also access KasirAja API Testing Documenter:
+Or you can also access KasirAja API Testing Documenter:
 https://documenter.getpostman.com/view/27607205/2s9XxySEK2
 
 #### KasirAja API Contract :
