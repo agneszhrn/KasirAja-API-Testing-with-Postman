@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "62d0acd1-1a76-49d0-beea-b9a16217bb93",
-		"name": "KasirAja - Agnes",
-		"description": "[KasirAja API Documentation : https://docs.google.com/document/d/1TdndXchcDym1IMMCT6aLxCza5wOjJHc7/edit?usp=drive_link&amp;ouid=115063764332650422029&amp;rtpof=true&amp;sd=true]()",
+		"name": "KasirAja API Testing",
+		"description": "# [KasirAja API Contract :](https://)\n\n[https://docs.google.com/document/d/1TdndXchcDym1IMMCT6aLxCza5wOjJHc7/edit?usp=drive_link&amp;ouid=115063764332650422029&amp;rtpof=true&amp;sd=true](https://)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27607205"
 	},
@@ -11,7 +11,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Register",
+					"name": "Registation",
 					"event": [
 						{
 							"listen": "test",
@@ -19,7 +19,7 @@
 								"exec": [
 									"var respon = JSON.parse(responseBody);\r",
 									"pm.collectionVariables.set(\"email\", respon.data.email);\r",
-									"pm.collectionVariables.set(\"pass\", \"pass123\");\r",
+									"pm.collectionVariables.set(\"pass\", \"abc123\");\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Toko berhasil didaftarkan\");\r",
@@ -47,16 +47,10 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{accessToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Toko Bunga\",\r\n   \"email\": \"{{$randomEmail}}\",\r\n   \"password\": \"pass123\"\r\n}\r\n\r\n",
+							"raw": "{\r\n   \"name\": \"Toko {{$randomCompanyName}}\",\r\n   \"email\": \"{{$randomEmail}}\",\r\n   \"password\": \"abc123\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,7 +69,7 @@
 					},
 					"response": [
 						{
-							"name": "Register Successful",
+							"name": "Registation Successful",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -163,7 +157,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Toko berhasil didaftarkan\",\n    \"data\": {\n        \"name\": \"Toko McClure, Bernhard and Lockman\",\n        \"email\": \"Alf12@yahoo.com\"\n    }\n}"
 						},
 						{
-							"name": "Register Empty Name",
+							"name": "RegistationEmpty Name",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -251,7 +245,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"name\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Register Empty Email",
+							"name": "Registation Empty Email",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -339,7 +333,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"email\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Register Empty Password",
+							"name": "Registation Empty Password",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -427,13 +421,13 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"password\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Register Invalid Email",
+							"name": "Registation Invalid Email",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"name\": \"Toko {{$randomCompanyName}}\",\r\n   \"email\": \"123@gmail.col\",\r\n   \"password\": \"abc123\"\r\n}\r\n",
+									"raw": "{\r\n   \"name\": \"Toko {{$randomCompanyName}}\",\r\n   \"email\": \"abc@gmail.col\",\r\n   \"password\": \"abc123\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -515,7 +509,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"email\\\" must be a valid email\"\n}"
 						},
 						{
-							"name": "Register Empty",
+							"name": "Registation Empty",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -931,7 +925,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"email\": \"test@gmail.col\",\r\n   \"password\": \"{{pass}}\"\r\n}",
+									"raw": "{\r\n   \"email\": \"abc@gmail.col\",\r\n   \"password\": \"{{pass}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1019,7 +1013,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"email\": \"{{email}}\",\r\n   \"password\": \"123\"\r\n}",
+									"raw": "{\r\n   \"email\": \"{{email}}\",\r\n   \"password\": \"abc\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1250,7 +1244,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -1337,7 +1331,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Access Token berhasil diperbarui\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkZjBjMjU1LWUyZTctNDc0MS1iYjgwLWMzOTQwNGQ5ZDAzZSIsImNvbXBhbnlJZCI6ImQ0ZDhiOTM1LWZkZjgtNDcxMi04YjI3LTQ3MGZhYWJkZjJkNiIsImlhdCI6MTY4NTM0OTEwNX0.q4f9h15Yq9JfIZ7x175l5f41V5Q9rPLuHa_vmFSnf7k\"\n    }\n}"
 						},
 						{
-							"name": "Refresh Token Empty refreshToken",
+							"name": "Refresh Token Empty",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -1348,7 +1342,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -1633,7 +1627,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -1727,7 +1721,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -1821,7 +1815,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -1915,7 +1909,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2009,7 +2003,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2103,7 +2097,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2249,7 +2243,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2344,7 +2338,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2478,7 +2472,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2571,7 +2565,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2664,18 +2658,18 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"30749421-2d3b-4703-a83f-44aacb70f460\",\n                \"name\": \"Jordan Kautzer\",\n                \"email\": \"Lionel91@yahoo.com\",\n                \"role\": \"kasir\"\n            },\n            {\n                \"id\": \"70904951-1fb2-4859-af50-7b1a3d6fd2d2\",\n                \"name\": \"Albert Balistreri\",\n                \"email\": \"Maurice.Murazik@gmail.com\",\n                \"role\": \"kasir\"\n            },\n            {\n                \"id\": \"79c4832a-615e-4375-8c0e-8750efdfde2d\",\n                \"name\": \"Kathleen Romaguera\",\n                \"email\": \"Maybelle46@hotmail.com\",\n                \"role\": \"kasir\"\n            },\n            {\n                \"id\": \"b28b2816-ed2b-4b68-8d85-1571860f30b4\",\n                \"name\": \"Ms. Lynn Gaylord\",\n                \"email\": \"Ray_Bechtelar@gmail.com\",\n                \"role\": \"kasir\"\n            },\n            {\n                \"id\": \"8dcc2f42-b287-49a8-8ef8-c1d5c811c78d\",\n                \"name\": \"Antonia Kuhic\",\n                \"email\": \"Nadia51@gmail.com\",\n                \"role\": \"kasir\"\n            },\n            {\n                \"id\": \"2df0c255-e2e7-4741-bb80-c39404d9d03e\",\n                \"name\": \"Toko Nolan, Schamberger and Runolfsdottir\",\n                \"email\": \"Eliane44@gmail.com\",\n                \"role\": \"admin\"\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 1,\n            \"total\": 6,\n            \"page\": 1\n        }\n    }\n}"
 						},
 						{
-							"name": "Get User List by Kasir",
+							"name": "Get User List by User Name",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{urlKasir}}/users?q=kasir-serbaguna",
+									"raw": "{{urlKasir}}/users?q={{userName}}",
 									"host": [
 										"{{urlKasir}}"
 									],
@@ -2685,7 +2679,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "kasir-serbaguna"
+											"value": "{{userName}}"
 										}
 									]
 								}
@@ -2729,6 +2723,105 @@
 								{
 									"key": "date",
 									"value": "Mon, 29 May 2023 09:44:23 GMT"
+								},
+								{
+									"key": "server",
+									"value": "LiteSpeed"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Niagahoster"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "Get User List by Page & User Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlKasir}}/users?p=1&q={{userName}}",
+									"host": [
+										"{{urlKasir}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "p",
+											"value": "1"
+										},
+										{
+											"key": "q",
+											"value": "{{userName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "origin,User-Agent"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "WWW-Authenticate,Server-Authorization"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "accept-ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "content-length",
+									"value": "83"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 24 Nov 2023 14:20:32 GMT"
 								},
 								{
 									"key": "server",
@@ -2816,7 +2909,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2905,13 +2998,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User berhasil diupdate\",\n    \"data\": {\n        \"name\": \"Jackie Goodwin\"\n    }\n}"
 						},
 						{
-							"name": "Update User Invalid Id",
+							"name": "Update User Invalid User Id",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -2925,13 +3018,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{urlKasir}}/users/abc",
+									"raw": "{{urlKasir}}/users/abc123",
 									"host": [
 										"{{urlKasir}}"
 									],
 									"path": [
 										"users",
-										"abc"
+										"abc123"
 									]
 								}
 							},
@@ -3047,7 +3140,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3127,24 +3220,24 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User berhasil dihapus\"\n}"
 						},
 						{
-							"name": "Delete User Invalid Id",
+							"name": "Delete User Invalid User Id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{urlKasir}}/users/abc",
+									"raw": "{{urlKasir}}/users/abc123",
 									"host": [
 										"{{urlKasir}}"
 									],
 									"path": [
 										"users",
-										"abc"
+										"abc123"
 									]
 								}
 							},
@@ -3278,7 +3371,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3372,7 +3465,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3466,7 +3559,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3560,7 +3653,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3696,7 +3789,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3780,13 +3873,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"unit\": {\n            \"name\": \"gram\",\n            \"description\": \"weight measurement\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Unit Detail Invalid unitId",
+							"name": "Get Unit Detail Invalid Unit Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -3913,7 +4006,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4006,17 +4099,23 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{urlKasir}}/units",
+									"raw": "{{urlKasir}}/units?page=1",
 									"host": [
 										"{{urlKasir}}"
 									],
 									"path": [
 										"units"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -4099,17 +4198,23 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{urlKasir}}/units",
+									"raw": "{{urlKasir}}/units?q={{unitName}}",
 									"host": [
 										"{{urlKasir}}"
 									],
 									"path": [
 										"units"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "{{unitName}}"
+										}
 									]
 								}
 							},
@@ -4184,6 +4289,105 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"units\": [\n            {\n                \"id\": \"60fcd151-3fcf-4df2-8e34-48cbd92abbda\",\n                \"name\": \"gram\",\n                \"description\": \"weight measurement\"\n            },\n            {\n                \"id\": \"ef5ca40a-f109-4c3e-85ce-f23f4cdfe1b6\",\n                \"name\": \"Buah\",\n                \"description\": null\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 1,\n            \"total\": 2,\n            \"page\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Unit List by Page & Unit Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlKasir}}/units?page=1&q={{unitName}}",
+									"host": [
+										"{{urlKasir}}"
+									],
+									"path": [
+										"units"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "q",
+											"value": "{{unitName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "origin,User-Agent"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "WWW-Authenticate,Server-Authorization"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "accept-ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "content-length",
+									"value": "85"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 24 Nov 2023 14:19:43 GMT"
+								},
+								{
+									"key": "server",
+									"value": "LiteSpeed"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Niagahoster"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"units\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": \"1\"\n        }\n    }\n}"
 						}
 					]
 				},
@@ -4243,7 +4447,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4338,7 +4542,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4433,7 +4637,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4528,7 +4732,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4617,13 +4821,13 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"name is required, description is optional\"\n}"
 						},
 						{
-							"name": "Update Unit Invalid unitId",
+							"name": "Update Unit Invalid Unit Id",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4763,7 +4967,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4843,13 +5047,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {}\n}"
 						},
 						{
-							"name": "Delete Unit Invalid unitId",
+							"name": "Delete Unit Invalid Unit Id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -4994,7 +5198,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5088,7 +5292,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5182,7 +5386,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5276,7 +5480,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5412,7 +5616,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5496,13 +5700,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"category\": {\n            \"name\": \"makanan ringan\",\n            \"description\": \"makanan ringan dari indofood\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Category Detail Invalid categoryId",
+							"name": "Get Category Detail Invalid Category Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5629,7 +5833,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5722,7 +5926,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5742,10 +5946,73 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "origin,Accept-Encoding,User-Agent"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "WWW-Authenticate,Server-Authorization"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "accept-ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "content-length",
+									"value": "190"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 24 Nov 2023 14:18:06 GMT"
+								},
+								{
+									"key": "server",
+									"value": "LiteSpeed"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Niagahoster"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"categories\": [\n            {\n                \"id\": \"800eb6a9-f537-4b18-a80c-2be49f96d5df\",\n                \"name\": \"update-minuman\",\n                \"description\": \"no-minuman\"\n            },\n            {\n                \"id\": \"d90a360d-2f20-4d1a-8df1-b574098b5386\",\n                \"name\": \"Umum\",\n                \"description\": null\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 1,\n            \"total\": 2,\n            \"page\": \"1\"\n        }\n    }\n}"
 						},
 						{
 							"name": "Get Category List by Category Name",
@@ -5754,7 +6021,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5845,6 +6112,105 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"categories\": [\n            {\n                \"id\": \"4d60c6c5-6583-41d7-859e-eace333637ff\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"927c2891-023a-4a56-b69d-6079295c2abd\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"5e25a0c9-d0f3-4b32-8ccf-ce388b530704\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"97d6fe32-a094-48a2-8b50-d8d30d885ef9\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"9df8f68b-3e24-4f7c-8984-13ba7930daa1\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"3b83301f-3436-44cd-afac-73bb5808f7e7\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"a528f7dc-1550-4eb0-8dc1-48707e98071b\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            },\n            {\n                \"id\": \"21adddf3-da72-471c-924f-754a642d67b1\",\n                \"name\": \"makanan ringan\",\n                \"description\": \"makanan ringan dari indofood\"\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 1,\n            \"total\": 8,\n            \"page\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Category List by Page & Category Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlKasir}}/categories?page=1&q={{categoryName}}",
+									"host": [
+										"{{urlKasir}}"
+									],
+									"path": [
+										"categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "q",
+											"value": "{{categoryName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "origin,User-Agent"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "WWW-Authenticate,Server-Authorization"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "accept-ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "content-length",
+									"value": "90"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 24 Nov 2023 14:18:46 GMT"
+								},
+								{
+									"key": "server",
+									"value": "LiteSpeed"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Niagahoster"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"categories\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": \"1\"\n        }\n    }\n}"
 						}
 					]
 				},
@@ -5904,7 +6270,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -5999,7 +6365,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6094,7 +6460,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6189,7 +6555,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6278,13 +6644,13 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"name\\\" is required\"\n}"
 						},
 						{
-							"name": "Update Category Invalid categoryId",
+							"name": "Update Category Invalid Category Id",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6424,7 +6790,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6504,13 +6870,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {}\n}"
 						},
 						{
-							"name": "Delete Category Invalid categoryId",
+							"name": "Delete Category Invalid Category Id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6655,7 +7021,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6749,13 +7115,13 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"name\": \"\"\r\n}",
+									"raw": "{\r\n   \"name\": \"\",\r\n   \"phone\": \"081234567890\",\r\n   \"address\": \"Bandoeng\",\r\n   \"description\": \"Budi anak Pak Edi\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6843,7 +7209,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -6937,7 +7303,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7031,7 +7397,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7167,7 +7533,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7251,13 +7617,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"customer\": {\n            \"name\": \"Budi\",\n            \"phone\": \"081234567890\",\n            \"address\": \"Bandoeng\",\n            \"description\": \"\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Customer Detail Invalid customerId",
+							"name": "Get Customer Detail Invalid Customer Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7390,7 +7756,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7479,7 +7845,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7568,13 +7934,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"customers\": [\n            {\n                \"id\": \"28a8fe1f-5d63-4cae-8881-5a9a45bed506\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"\"\n            },\n            {\n                \"id\": \"8aa4fd02-4db2-48f0-8fbe-d95affeb7815\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"35740c32-274e-40d6-b79f-f6489723cbfb\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"1880dea0-4568-4bf1-983e-cad51da96d23\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"4b830bb6-24a9-44d9-bda1-3cd314a0272a\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"baf3863c-2fd2-4c95-be90-ca1877af0ae9\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"1c23c639-0f5b-44fc-b9be-7f98c13ae260\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"2f649ba7-40fa-4437-bf3b-ffe32bff17ce\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"07bfefe2-96ed-4308-8f84-98a700ef921d\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"\"\n            },\n            {\n                \"id\": \"d366a3e0-7c0e-4052-8638-eace3e6b9515\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 2,\n            \"total\": 11,\n            \"page\": \"1\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Customer List by customerName",
+							"name": "Get Customer List by Customer Name",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7661,6 +8027,109 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"customers\": [\n            {\n                \"id\": \"101519f1-34a3-444f-8058-566585a52fbf\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"950ddc1a-f824-4a5c-b6ab-cbb0f17a74bf\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"28a8fe1f-5d63-4cae-8881-5a9a45bed506\",\n                \"name\": \"Budi Doremi\",\n                \"phone\": \"08987654321\",\n                \"description\": \"Pelanggan VIP\"\n            },\n            {\n                \"id\": \"8aa4fd02-4db2-48f0-8fbe-d95affeb7815\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"35740c32-274e-40d6-b79f-f6489723cbfb\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"1880dea0-4568-4bf1-983e-cad51da96d23\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"4b830bb6-24a9-44d9-bda1-3cd314a0272a\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"baf3863c-2fd2-4c95-be90-ca1877af0ae9\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"1c23c639-0f5b-44fc-b9be-7f98c13ae260\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            },\n            {\n                \"id\": \"2f649ba7-40fa-4437-bf3b-ffe32bff17ce\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"Budi anak Pak Edi\"\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 2,\n            \"total\": 12,\n            \"page\": 1\n        }\n    }\n}"
+						},
+						{
+							"name": "Get Customer List by Page & Customer Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{urlKasir}}/customers?page=1&q={{customerName}}",
+									"host": [
+										"{{urlKasir}}"
+									],
+									"path": [
+										"customers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "q",
+											"value": "{{customerName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "origin,Accept-Encoding,User-Agent"
+								},
+								{
+									"key": "access-control-expose-headers",
+									"value": "WWW-Authenticate,Server-Authorization"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "accept-ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "content-length",
+									"value": "208"
+								},
+								{
+									"key": "content-encoding",
+									"value": "br"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 24 Nov 2023 15:48:28 GMT"
+								},
+								{
+									"key": "server",
+									"value": "LiteSpeed"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Niagahoster"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains; preload"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"customers\": [\n            {\n                \"id\": \"7fd58241-44d3-42a4-b8c6-becfa90514e5\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": \"\"\n            },\n            {\n                \"id\": \"a4ed815b-bec7-434b-9961-a79be8cc70f5\",\n                \"name\": \"Budi\",\n                \"phone\": \"081234567890\",\n                \"description\": null\n            }\n        ],\n        \"meta\": {\n            \"totalPages\": 1,\n            \"total\": 2,\n            \"page\": \"1\"\n        }\n    }\n}"
 						}
 					]
 				},
@@ -7720,7 +8189,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7815,7 +8284,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -7910,7 +8379,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8005,7 +8474,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8100,7 +8569,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8195,7 +8664,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8290,7 +8759,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8385,7 +8854,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8525,7 +8994,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8605,13 +9074,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {}\n}"
 						},
 						{
-							"name": "Delete Customer Invalid customerId",
+							"name": "Delete Customer Invalid Customer Id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8756,7 +9225,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8844,13 +9313,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product berhasil ditambahkan\",\n    \"data\": {\n        \"productId\": \"a2a3b901-e98a-482c-94ec-788c2ecf7a16\",\n        \"name\": \"taro\"\n    }\n}"
 						},
 						{
-							"name": "Add Product Empty category_id",
+							"name": "Add Product Empty Category Id",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -8944,7 +9413,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9038,7 +9507,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9132,7 +9601,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9226,7 +9695,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9320,7 +9789,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9414,7 +9883,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9508,7 +9977,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9602,7 +10071,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9696,7 +10165,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9832,7 +10301,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -9916,13 +10385,13 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"code\": \"A314ASDDFIER3432\",\n            \"name\": \"taro\",\n            \"description\": null,\n            \"price\": 3500,\n            \"cost\": 3000,\n            \"cost_average\": null,\n            \"category_name\": null,\n            \"category_id\": null,\n            \"stock\": 5\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Product Detail Invalid Id",
+							"name": "Get Product Detail Invalid Product Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{accessToken}}",
 										"type": "text"
 									}
 								],
@@ -10227,7 +10696,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"products\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": \"1\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Product List by productName",
+							"name": "Get Product List by Product Name",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -10322,7 +10791,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"products\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": 1\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Product List with stock",
+							"name": "Get Product List with Stock",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -10417,7 +10886,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"products\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": 1\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Product List with category",
+							"name": "Get Product List with Category",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -10512,102 +10981,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"products\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": 1\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Product List",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{accessToken}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{urlKasir}}/products?categoryId={{categoryId}}",
-									"host": [
-										"{{urlKasir}}"
-									],
-									"path": [
-										"products"
-									],
-									"query": [
-										{
-											"key": "categoryId",
-											"value": "{{categoryId}}"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Connection",
-									"value": "Keep-Alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5, max=100"
-								},
-								{
-									"key": "content-type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "vary",
-									"value": "origin,User-Agent"
-								},
-								{
-									"key": "access-control-expose-headers",
-									"value": "WWW-Authenticate,Server-Authorization"
-								},
-								{
-									"key": "cache-control",
-									"value": "no-cache"
-								},
-								{
-									"key": "accept-ranges",
-									"value": "bytes"
-								},
-								{
-									"key": "content-length",
-									"value": "88"
-								},
-								{
-									"key": "date",
-									"value": "Mon, 07 Aug 2023 12:04:01 GMT"
-								},
-								{
-									"key": "server",
-									"value": "LiteSpeed"
-								},
-								{
-									"key": "x-powered-by",
-									"value": "Niagahoster"
-								},
-								{
-									"key": "strict-transport-security",
-									"value": "max-age=31536000; includeSubDomains; preload"
-								},
-								{
-									"key": "x-xss-protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "x-content-type-options",
-									"value": "nosniff"
-								},
-								{
-									"key": "alt-svc",
-									"value": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\""
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"products\": [],\n        \"meta\": {\n            \"totalPages\": 0,\n            \"total\": 0,\n            \"page\": \"1\"\n        }\n    }\n}"
-						},
-						{
-							"name": "Get Product List by categoryId",
+							"name": "Get Product List by Category Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -10848,7 +11222,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product berhasil diupdate\",\n    \"data\": {\n        \"name\": \"taro\"\n    }\n}"
 						},
 						{
-							"name": "Update Product Empty categoryId",
+							"name": "Update Product Empty Category Id",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -10943,7 +11317,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"category_id\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Update Product Empty code",
+							"name": "Update Product Empty Code",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -11133,7 +11507,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"name\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Update Product Empty price",
+							"name": "Update Product Empty Price",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -11228,7 +11602,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"price\\\" must be a number\"\n}"
 						},
 						{
-							"name": "Update Product Empty cost",
+							"name": "Update Product Empty Cost",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -11323,7 +11697,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"cost\\\" must be a number\"\n}"
 						},
 						{
-							"name": "Update Product Empty stock",
+							"name": "Update Product Empty Stock",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -11513,7 +11887,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"code\\\" is required\"\n}"
 						},
 						{
-							"name": "Update Product Invalid productId",
+							"name": "Update Product Invalid Product Id",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -11735,7 +12109,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product berhasil dihapus\"\n}"
 						},
 						{
-							"name": "Delete Product Invalid productId",
+							"name": "Delete Product Invalid Product Id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
@@ -11973,7 +12347,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"transaksi ditambahkan\",\n    \"data\": {\n        \"saleId\": \"bd38b5f2-2261-4218-b11b-1419d7ab2002\"\n    }\n}"
 						},
 						{
-							"name": "Add Sales Empty officeId",
+							"name": "Add Sales Empty Office Id",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12067,7 +12441,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"officeId\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Add Sales Empty customerId",
+							"name": "Add Sales Empty Customer Id",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12161,7 +12535,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"customerId\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Add Sales date is note valid date",
+							"name": "Add Sales Date is note valid date",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12255,7 +12629,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"date\\\" must be a valid date\"\n}"
 						},
 						{
-							"name": "Add Sales amount is not number",
+							"name": "Add Sales Amount is not number",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12267,7 +12641,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": \"abc\",\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": \"200pcs\",\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12349,7 +12723,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"amount\\\" must be a number\"\n}"
 						},
 						{
-							"name": "Add Sales discount is not number",
+							"name": "Add Sales Discount is not number",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12361,7 +12735,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": \"abc\",\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": \"0%\",\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12443,7 +12817,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"discount\\\" must be a number\"\n}"
 						},
 						{
-							"name": "Add Sales Empty productId",
+							"name": "Add Sales Empty Product Id",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12537,7 +12911,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"items[0].productId\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Add Sales Empty quantity",
+							"name": "Add Sales Empty Quantity",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12631,7 +13005,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"items[0].quantity\\\" is required\"\n}"
 						},
 						{
-							"name": "Add Sales quantity is not number",
+							"name": "Add Sales Quantity is not number",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12643,7 +13017,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": \"abc\",\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": \"1pcs\",\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12725,7 +13099,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"items[0].quantity\\\" must be a number\"\n}"
 						},
 						{
-							"name": "Add Sales Empty price",
+							"name": "Add Sales Empty Price",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12819,7 +13193,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"items[0].price\\\" is required\"\n}"
 						},
 						{
-							"name": "Add Sales price is not number",
+							"name": "Add Sales Price is not number",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -12831,7 +13205,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": \"abc\"\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": \"dua ratus\"\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13492,7 +13866,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"sale\": {\n            \"date\": \"2023-01-31T17:00:00.000Z\",\n            \"invoice\": \"INV001\",\n            \"description\": \"Pembelian pertama\",\n            \"amount\": 2000,\n            \"discount\": 0,\n            \"casier\": \"Toko Bunga\",\n            \"office_name\": null,\n            \"customer_id\": null,\n            \"customer_name\": null,\n            \"items\": [\n                {\n                    \"id\": null,\n                    \"code\": null,\n                    \"name\": null,\n                    \"quantity\": 1,\n                    \"price\": 2000\n                }\n            ]\n        }\n    }\n}"
 						},
 						{
-							"name": "Get Sale Order Data Invalid salesId",
+							"name": "Get Sale Order Data Invalid Sales Id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -14207,7 +14581,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": \"abc\",\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 4,\r\n           \"cost\": 1000\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": \"14000pcs\",\r\n   \"discount\": \"0%\",\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 4,\r\n           \"cost\": 1000\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14865,7 +15239,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": 14000,\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": \"abc\",\r\n           \"cost\": 1000\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": 14000,\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": \"4pcs\",\r\n           \"cost\": 1000\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14959,7 +15333,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": 14000,\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 4,\r\n           \"cost\": \"abc\"\r\n       }\r\n   ]\r\n}",
+									"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": 14000,\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 4,\r\n           \"cost\": \"1000abc\"\r\n       }\r\n   ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -15527,27 +15901,7 @@
 			"value": ""
 		},
 		{
-			"key": "productId",
-			"value": ""
-		},
-		{
-			"key": "productName",
-			"value": ""
-		},
-		{
-			"key": "saleId",
-			"value": ""
-		},
-		{
 			"key": "salesId",
-			"value": ""
-		},
-		{
-			"key": "email",
-			"value": ""
-		},
-		{
-			"key": "pass",
 			"value": ""
 		},
 		{
