@@ -1,4 +1,4 @@
-# KasirAja-API-Testing-with-Postman
+# KasirAja-API-Testing-using-Postman
 
 I use Postman as a tool to do API Testing for the KasirAja application. There are 71 tests with 152 test cases.
 
