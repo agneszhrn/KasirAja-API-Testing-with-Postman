@@ -11,22 +11,33 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Registation",
+					"name": "Registration",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"email\", respon.data.email);\r",
 									"pm.collectionVariables.set(\"pass\", \"abc123\");\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Toko berhasil didaftarkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -47,10 +58,16 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Toko {{$randomCompanyName}}\",\r\n   \"email\": \"{{$randomEmail}}\",\r\n   \"password\": \"abc123\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"name\": \"Toko {{$randomCompanyName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"abc123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -69,7 +86,7 @@
 					},
 					"response": [
 						{
-							"name": "Registation Successful",
+							"name": "Registration Successful",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -157,7 +174,7 @@
 							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Toko berhasil didaftarkan\",\n    \"data\": {\n        \"name\": \"Toko McClure, Bernhard and Lockman\",\n        \"email\": \"Alf12@yahoo.com\"\n    }\n}"
 						},
 						{
-							"name": "RegistationEmpty Name",
+							"name": "Registration Empty Name",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -245,7 +262,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"name\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Registation Empty Email",
+							"name": "Registration Empty Email",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -333,7 +350,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"email\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Registation Empty Password",
+							"name": "Registration Empty Password",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -421,7 +438,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"password\\\" is not allowed to be empty\"\n}"
 						},
 						{
-							"name": "Registation Invalid Email",
+							"name": "Registration Invalid Email",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -509,7 +526,7 @@
 							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"\\\"email\\\" must be a valid email\"\n}"
 						},
 						{
-							"name": "Registation Empty",
+							"name": "Registration Empty",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -605,16 +622,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"accessToken\", respon.data.accessToken);\r",
 									"pm.collectionVariables.set(\"refreshToken\", respon.data.refreshToken);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Authentication berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -624,6 +652,11 @@
 					"request": {
 						"method": "POST",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -1191,12 +1224,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
+									"pm.collectionVariables.set(\"accessToken\", respon.data.accessToken);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Access Token berhasil diperbarui\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1433,18 +1480,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"token\");\r",
+									"pm.collectionVariables.unset(\"refreshtoken\");\r",
+									"pm.collectionVariables.unset(\"email\");\r",
+									"pm.collectionVariables.unset(\"pass\");\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Refresh token berhasil dihapus\");\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"token\");\r",
-									"pm.collectionVariables.unset(\"refreshtoken\");\r",
-									"pm.collectionVariables.unset(\"email\");\r",
-									"pm.collectionVariables.unset(\"pass\");"
+									"// assertion to check status of the response code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -1452,7 +1507,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n   \"refreshToken\": \"{{refreshToken}}\"\r\n}",
@@ -1575,16 +1636,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"userId\", respon.data.userId);\r",
 									"pm.collectionVariables.set(\"userName\", respon.data.name);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"User berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1594,6 +1665,11 @@
 					"request": {
 						"method": "POST",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -2193,12 +2269,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2433,12 +2516,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2448,6 +2538,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -2860,12 +2955,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable to update\r",
+									"pm.collectionVariables.set(\"userName\", respon.data.name);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"User berhasil diupdate\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2875,6 +2983,11 @@
 					"request": {
 						"method": "PUT",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -3097,16 +3210,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"userId\");\r",
+									"pm.collectionVariables.unset(\"userName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"User berhasil dihapus\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"userId\");\r",
-									"pm.collectionVariables.unset(\"userName\");"
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -3115,6 +3236,11 @@
 					"request": {
 						"method": "DELETE",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -3319,16 +3445,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"unitId\", respon.data.unitId);\r",
 									"pm.collectionVariables.set(\"unitName\", respon.data.name);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Unit berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -3339,6 +3476,11 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -3346,7 +3488,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"gram\",\r\n   \"description\": \"weight measurement\"\r\n}",
+							"raw": "{\r\n    \"name\": \"gram\",\r\n    \"description\": \"weight measurement\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3749,12 +3891,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -3767,6 +3916,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -3967,12 +4121,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"let unitName = pm.collectionVariables.get(\"unitName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"    pm.expect(pm.response.text()).to.include(unitName);\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -3982,6 +4146,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -4398,12 +4567,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable to update\r",
+									"pm.collectionVariables.set(\"unitName\", respon.data.name);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -4414,6 +4596,11 @@
 						"method": "PUT",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -4421,7 +4608,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"update-meter\",\r\n   \"description\": \"no-meter\"\r\n}\r\n",
+							"raw": "{\r\n    \"name\": \"update-meter\",\r\n    \"description\": \"no-meter\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4924,16 +5111,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"unitId\");\r",
+									"pm.collectionVariables.unset(\"unitName\");\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"unitId\");\r",
-									"pm.collectionVariables.unset(\"unitName\");"
+									"// assertion to check status of the response code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -4943,11 +5138,20 @@
 						"method": "DELETE",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{urlKasir}}/units/{{unitId}}",
 							"host": [
@@ -5146,16 +5350,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"categoryId\", respon.data.categoryId);\r",
 									"pm.collectionVariables.set(\"categoryName\", respon.data.name);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Category berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -5169,11 +5384,16 @@
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"makanan ringan\",\r\n   \"description\": \"makanan ringan dari indofood\"\r\n}",
+							"raw": "{\r\n    \"name\": \"makanan ringan\",\r\n    \"description\": \"makanan ringan dari indofood\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5576,12 +5796,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -5591,6 +5818,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -5794,12 +6026,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"let categoryName = pm.collectionVariables.get(\"categoryName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"    pm.expect(pm.response.text()).to.include(categoryName);\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -5809,6 +6051,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -6221,12 +6468,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
+									"pm.collectionVariables.set(\"categoryName\", respon.data.name);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -6237,6 +6497,11 @@
 						"method": "PUT",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -6244,7 +6509,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"update-minuman\",\r\n   \"description\": \"no-minuman\"\r\n}",
+							"raw": "{\r\n    \"name\": \"update-minuman\",\r\n    \"description\": \"no-minuman\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6747,16 +7012,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"categoryId\");\r",
+									"pm.collectionVariables.unset(\"categoryName\");\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"categoryId\");\r",
-									"pm.collectionVariables.unset(\"categoryName\");"
+									"// assertion to check status of the response code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -6765,6 +7038,11 @@
 					"request": {
 						"method": "DELETE",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -6969,16 +7247,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
 									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"customerId\", respon.data.customerId);\r",
 									"pm.collectionVariables.set(\"customerName\", respon.data.name);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Customer berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -6989,6 +7278,11 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -6996,7 +7290,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Budi\",\r\n   \"phone\": \"081234567890\",\r\n   \"address\": \"Bandoeng\",\r\n   \"description\": \"Budi anak Pak Edi\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Budi\",\r\n    \"phone\": \"081234567890\",\r\n    \"address\": \"Bandoeng\",\r\n    \"description\": \"Budi anak Pak Edi\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7493,12 +7787,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -7508,6 +7809,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -7713,16 +8019,20 @@
 								"exec": [
 									"let customerName = pm.collectionVariables.get(\"customerName\");\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(customerName);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-									"});\r",
-									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -7732,6 +8042,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -8140,12 +8455,25 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
+									"pm.collectionVariables.set(\"customerName\", respon.data.name);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -8156,6 +8484,11 @@
 						"method": "PUT",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -8163,7 +8496,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Budi Doremi\",\r\n   \"phone\": \"08987654321\",\r\n   \"address\": \"Bandung\",\r\n   \"description\": \"Pelanggan VIP\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Budi Doremi\",\r\n    \"phone\": \"08987654321\",\r\n    \"address\": \"Bandung\",\r\n    \"description\": \"Pelanggan VIP\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8951,16 +9284,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"customerId\");\r",
+									"pm.collectionVariables.unset(\"customerName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"customerId\");\r",
-									"pm.collectionVariables.unset(\"customerName\");"
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -8969,6 +9310,11 @@
 					"request": {
 						"method": "DELETE",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -9173,16 +9519,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var respon = JSON.parse(responseBody)\r",
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"productId\", respon.data.productId);\r",
 									"pm.collectionVariables.set(\"productName\", respon.data.name);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Product berhasil ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -9193,6 +9550,11 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -9200,7 +9562,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"category_id\" : \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"code\": \"A314ASDDFIER3432\",\r\n   \"name\": \"taro\",\r\n   \"price\": \"3500\",\r\n   \"cost\": \"3000\",\r\n   \"stock\": \"5\"\r\n}",
+							"raw": "{\r\n    \"category_id\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n    \"code\": \"A314ASDDFIER3432\",\r\n    \"name\": \"taro\",\r\n    \"price\": \"3500\",\r\n    \"cost\": \"3000\",\r\n    \"stock\": \"5\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -10261,12 +10623,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -10276,6 +10645,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -10479,12 +10853,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"let productName = pm.collectionVariables.get(\"productName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+									"    pm.expect(pm.response.text()).to.include(productName);\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -10494,6 +10878,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -11084,12 +11473,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody)\r",
+									"\r",
+									"// set collection variable\r",
+									"pm.collectionVariables.set(\"productName\", respon.data.name);\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"Product berhasil diupdate\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -11100,6 +11503,11 @@
 						"method": "PUT",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -11107,7 +11515,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"category_id\" : \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"code\": \"A314ASDDFIER3432\",\r\n   \"name\": \"taro\",\r\n   \"price\": \"3500\",\r\n   \"cost\": \"3000\",\r\n   \"stock\": \"1\"\r\n}",
+							"raw": "{\r\n    \"category_id\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n    \"code\": \"A314ASDDFIER3432\",\r\n    \"name\": \"taro\",\r\n    \"price\": \"3500\",\r\n    \"cost\": \"3000\",\r\n    \"stock\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -11990,16 +12398,24 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// clear collection variable\r",
+									"pm.collectionVariables.unset(\"productId\");\r",
+									"pm.collectionVariables.unset(\"productName\");\r",
+									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"Product berhasil dihapus\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.collectionVariables.unset(\"productId\");\r",
-									"pm.collectionVariables.unset(\"productName\");"
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -12008,6 +12424,11 @@
 					"request": {
 						"method": "DELETE",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -12208,15 +12629,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var respon = JSON.parse(responseBody)\r",
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"salesId\", respon.data.saleId);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"transaksi ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -12227,6 +12659,11 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -12234,7 +12671,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n   \"date\": \"2023-02-01\",\r\n   \"invoice\": \"INV001\",\r\n   \"amount\": 2000,\r\n   \"discount\": 0,\r\n   \"description\": \"Pembelian pertama\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 1,\r\n           \"price\": 2000\r\n       }\r\n   ]\r\n}",
+							"raw": "{\r\n    \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n    \"customerId\": \"811f547e-a24e-4f94-bfe1-b7ed7d11c03f\",\r\n    \"date\": \"2023-02-01\",\r\n    \"invoice\": \"INV001\",\r\n    \"amount\": 2000,\r\n    \"discount\": 0,\r\n    \"description\": \"Pembelian pertama\",\r\n    \"items\": [\r\n        {\r\n            \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n            \"quantity\": 1,\r\n            \"price\": 2000\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -13398,12 +13835,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -13416,6 +13860,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -13738,12 +14187,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -13753,6 +14209,11 @@
 					"request": {
 						"method": "GET",
 						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
@@ -13960,15 +14421,26 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var respon = JSON.parse(responseBody)\r",
+									"// to parse JSON data\r",
+									"var respon = JSON.parse(responseBody);\r",
+									"\r",
+									"// set collection variable\r",
 									"pm.collectionVariables.set(\"purchaseId\", respon.data.purchaseId);\r",
 									"\r",
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"    pm.expect(pm.response.text()).to.include(\"transaksi ditambahkan\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -13979,6 +14451,11 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
 								"type": "text"
@@ -13986,7 +14463,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n   \"date\": \"2023-01-28\",\r\n   \"invoice\": \"INV/02/12/2023/001\",\r\n   \"amount\": 14000,\r\n   \"discount\": 0,\r\n   \"description\": \"testing\",\r\n   \"items\" : [\r\n       {\r\n           \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n           \"quantity\": 4,\r\n           \"cost\": 1000\r\n       }\r\n   ]\r\n}",
+							"raw": "{\r\n    \"officeId\": \"2f458834-0b21-466f-9f56-d35a8ed6f6ba\",\r\n    \"date\": \"2023-01-28\",\r\n    \"invoice\": \"INV/02/12/2023/001\",\r\n    \"amount\": 14000,\r\n    \"discount\": 0,\r\n    \"description\": \"testing\",\r\n    \"items\": [\r\n        {\r\n            \"productId\": \"681fa14f-8bed-4bee-a4a3-5c15a9e3fc5d\",\r\n            \"quantity\": 4,\r\n            \"cost\": 1000\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -15423,12 +15900,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -15441,6 +15925,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -15648,12 +16137,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"// assertion to check body matches string in the body response\r",
 									"pm.test(\"Body matches string\", function () {\r",
 									"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 									"});\r",
 									"\r",
+									"// assertion to check status of the response code\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// assertion to check response time\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -15666,6 +16162,11 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
