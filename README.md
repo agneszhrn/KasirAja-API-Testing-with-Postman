@@ -4,12 +4,15 @@ I use Postman as a tool to do API Testing for the KasirAja application. There ar
 
 To start testing, follow these steps:
 1. Clone this repo to your computer.
-2. Open Postman application.
-3. Import the `KasirAja API Testing.postman_collection` file to Postman.
-4. Run the collection.
+2. Open the `Test Case KasirAja Testing` document to view the test cases.
+3. Open Postman application.
+4. Import the `KasirAja API Testing.postman_collection` file to Postman.
+5. Run the collection.
 
-Or you can also access KasirAja API Testing Documenter:
+Or you can also access through KasirAja API Testing Documenter :
 https://documenter.getpostman.com/view/27607205/2s9XxySEK2
+
+
 
 #### KasirAja API Contract :
 https://drive.google.com/file/d/1Voq5kDN5_ImFVMKruEblohq2bg5d4Axj/view?usp=sharing
