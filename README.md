@@ -12,7 +12,7 @@ Or you can also access KasirAja API Testing Documenter:
 https://documenter.getpostman.com/view/27607205/2s9XxySEK2
 
 #### KasirAja API Contract :
-https://docs.google.com/document/d/1TdndXchcDym1IMMCT6aLxCza5wOjJHc7/edit?usp=drive_link&ouid=115063764332650422029&rtpof=true&sd=true
+https://drive.google.com/file/d/1Voq5kDN5_ImFVMKruEblohq2bg5d4Axj/view?usp=sharing
 
 
 ## Contact Me
